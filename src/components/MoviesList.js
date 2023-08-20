@@ -12,7 +12,9 @@ const MovieList = (props) => {
           title={movie.title}
           releaseDate={movie.releaseDate}
           openingText={movie.openingText}
+          onDelete={() => props.onDeleteMovie(movie.id)} 
         />
+
       ))}
     </ul>
   );

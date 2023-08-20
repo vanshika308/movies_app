@@ -1,23 +1,25 @@
 import React,{useRef} from 'react';
 import classes from './InputForm.module.css';
 
-const InputForm =()=>{
+const InputForm =(props)=>{
 
    const enteredTitle = useRef();
    const enteredOpeningText=useRef();
    const enteredDate = useRef();
 
-
-   const submitHnadler = (event) => {
+   const submitHandler = (event) => {
     event.preventDefault();
     const newMovieObject = {
       title: enteredTitle.current.value,
-      OpeningText: enteredOpeningText.current.value,
+      openingText: enteredOpeningText.current.value,
       releaseDate: enteredDate.current.value,
+      id: Math.random(),
     };
 
-    console.log(newMovieObject);
+    props.onAddMovie(newMovieObject); 
   };
+
+
 
    return(
       <form>
@@ -34,7 +36,7 @@ const InputForm =()=>{
         <input ref={enteredDate}
             type="text"
             id="date"/>
-        <button type="submit" onClick={submitHnadler}>Add movie</button>
+        <button type="submit" onClick={submitHandler}>Add movie</button>
       </form>
    );
 }
