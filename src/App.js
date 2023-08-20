@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MoviesList from './components/MoviesList';
 import './App.css';
+import InputForm from './components/InputForm';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -66,6 +67,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <InputForm/>
       <section>{content}</section>
     </React.Fragment>
   );
